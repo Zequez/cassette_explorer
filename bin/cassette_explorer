@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+THIS_FILE = File.symlink?(__FILE__) ? File.readlink(__FILE__) : __FILE__
+begin
+  require File.dirname(THIS_FILE) + '/../lib/cassette_explorer'
+rescue LoadError
+  require 'cassette_explorer'
+end
+
+server = CassetteExplorer::Server.from_command_line(ARGV)
+if server
+  server.run
+end
