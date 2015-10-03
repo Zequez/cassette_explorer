@@ -10,10 +10,6 @@ module CassetteExplorer
           options[:relative_urls] = !v
         end
 
-        opts.on('-h', '--help', 'Prints this help') do |v|
-          options[:help] = v
-        end
-
         opts.on(
           '-f',
           '--load-in-iframe',
@@ -24,6 +20,14 @@ module CassetteExplorer
 
         opts.on('-w', '--watch', 'Watches the cassettes for changes. Default: true') do |v|
           options[:watch] = v
+        end
+
+        opts.on('-p', '--port PORT', 'Port to mount the server') do |v|
+          options[:port] = v
+        end
+
+        opts.on('-h', '--help', 'Prints this help') do |v|
+          options[:help] = v
         end
       end
 

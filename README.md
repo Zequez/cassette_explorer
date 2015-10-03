@@ -10,12 +10,14 @@ $ gem install cassette_explorer
 ## Usage
 
 ```
-cassette_explorer /path/to/vcr/cassettes/directory [-r --replace-urls]
+$ cassette_explorer -h
+Usage: cassette_explorer /path/to/vcr/cassettes/directory [options]
+    -r, --no-replace-urls            Replace relative URLs with absolute URLs. Default: true
+    -f, --load-in-iframe             Default the views to load in an iframe (it can be toggled from the page). Default: false
+    -w, --watch                      Watches the cassettes for changes. Default: true
+    -p, --port PORT                  Port to mount the server
+    -h, --help                       Prints this help
 ```
-
-`[-r --replace-urls]` will replace all the relative URLs in each page with an absolute
-URLs of the page original domain. This allows the styles, images and scripts with
-relative URLs to load.
 
 ## TODO
 
