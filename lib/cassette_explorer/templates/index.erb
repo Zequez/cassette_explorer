@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <title>List of pages</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: monospace;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .file {
+      color: grey;
+    }
+
+    .method {
+      font-weight: bold;
+    }
+
+    .method.get {
+      color: green;
+    }
+
+    .method.post {
+      color: red;
+    }
+
+    .link {
+
+    }
+
+    .status {
+      font-weight: bold;
+      color: red;
+    }
+
+    .status.status-200 {
+      color: green;
+    }
+
+    .iframe-toggle-container {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 1000px;
+      border: 0;
+    }
+  </style>
+  <body>
+    <ul>
+      <% files.each_pair do |file, pages| %>
+        <li class="file"><%= file %></li>
+        <ul>
+          <% pages.each do |page| %>
+            <li>
+              <a class="interaction-link" href="<%=page_path file, page%>&data">Data</a>
+              <span class="method <%= page.method.downcase %>"><%= page.method %></span>
+              <a class="link" href="<%=page_path file, page%>"><%= page.url %></a>
+              <span class="status status-<%= page.status %>">=> <%= page.status %></span>
+              <span class="title"><%= page.title and %Q{"#{page.title}"} %></span>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </ul>
+    <label class="iframe-toggle-container">
+      Load in iframe
+      <input type="checkbox" id="iframe-toggle" <%=load_in_iframe ? 'checked' : ''%>/>
+    </label>
+    <iframe src=""></iframe>
+
+    <script>
+      var iframe = document.getElementsByTagName('iframe')[0];
+      var iframeToggle = document.getElementById('iframe-toggle');
+      document.body.addEventListener('click', function(ev){
+        if (iframeToggle.checked && ev.target.tagName == 'A') {
+          iframe.src = ev.target.href;
+          ev.preventDefault();
+        }
+      });
+    </script>
+  </body>
+</html>
