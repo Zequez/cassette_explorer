@@ -1,6 +1,6 @@
 # CassetteExplorer
 
-CasetteExplorer allow you to mount a webserver to load the
+CasetteExplorer is a command line utility that allow you to mount a webserver to load the
 [VCR](https://github.com/vcr/vcr) cassettes in the browser
 
 ## Installation
