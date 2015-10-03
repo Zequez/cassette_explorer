@@ -22,7 +22,7 @@ describe CassetteExplorer::Server do
     end
   end
 
-  describe '#run', type: :feature do
+  describe '#run', type: :feature, js: false do
     before :all do
       VCR.use_cassette 'first_cassette', record: :new_episodes do
         Typhoeus.get('http://store.steampowered.com/app/8870/') # Bioshock Infinite
@@ -58,8 +58,8 @@ describe CassetteExplorer::Server do
     end
 
     it 'should display the content of the page if given the parameters' do
-      visit '/?' + URI.encode_www_form(url: 'http://store.steampowered.com/app/8870/', file: '/first_cassette.yml')
-      expect(page).to have_content 'Indebted to the wrong people, with his life on the line, veteran of the U.S. Cavalry and now hired gun, '
+      visit '/?' + URI.encode_www_form(url: 'http://store.steampowered.com/app/8930/', file: '/first_cassette.yml')
+      expect(page).to have_content 'Create, discover, and download new player-created maps, scenarios, interfaces, and more!'
     end
   end
 end

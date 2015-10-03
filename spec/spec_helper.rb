@@ -28,7 +28,7 @@ end
 
 Capybara.configure do |config|
   config.run_server = false
-  config.default_driver = :poltergeist
+  config.default_driver = :selenium
   config.app_host = 'http://localhost:2332' # change url
 end
 
