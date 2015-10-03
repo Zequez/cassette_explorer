@@ -1,11 +1,13 @@
 # CassetteExplorer
 
 CasetteExplorer is a command line utility that allow you to mount a webserver to load the
-[VCR](https://github.com/vcr/vcr) cassettes in the browser
+[VCR](https://github.com/vcr/vcr) cassettes in the browser.
 
 ## Installation
 
+```
 $ gem install cassette_explorer
+```
 
 ## Usage
 
@@ -26,7 +28,7 @@ Usage: cassette_explorer /path/to/vcr/cassettes/directory [options]
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/cassette_explorer/fork )
+1. Fork it ( https://github.com/Zequez/cassette_explorer/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
