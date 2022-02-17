@@ -17,7 +17,7 @@ VCR.configure do |config|
   end
 
   config.preserve_exact_body_bytes do |http_message|
-    http_message.body.encoding.name == 'ASCII-8BIT' ||
+    http_message.body.encoding == Encoding::BINARY ||
     !http_message.body.valid_encoding?
   end
 
